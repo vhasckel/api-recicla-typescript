@@ -91,48 +91,49 @@ npm start
 
 ```
 src/
-  app.ts                # Configuração do Express, middlewares, rotas e /health
-  server.ts             # Bootstrap: conecta DB e inicia servidor
-  settings.ts           # Agrega configurações derivadas de env
-  config/
-    env.ts              # Leitura e validação das variáveis de ambiente (Zod)
-  infra/
-    database.ts         # Pool do PostgreSQL, healthcheck e utilitários de DB
-    logger.ts           # Logger Pino e middleware de debug HTTP
-  middlewares/
-    error.ts            # Tratamento centralizado de erros (AppError)
-    notFound.ts         # 404 Not Found
-  shared/
-    index.ts            # Re‑exports (validate, tipos, openapi)
-    openapi.ts          # Declaração do OpenAPI e rota /api-docs
-    validation.ts       # Middleware validate (Zod)
-    types.ts            # Tipos utilitários de resposta
-  routes.ts             # Router raiz, mapeia /users, /materials, /points
-  modules/
-    material/           # CRUD de materiais
-      routes.ts
-      controller.ts
-      services.ts
-      repository.ts
-      models.ts
-      index.ts
-    point/              # CRUD de pontos de coleta e filtros por material
-      routes.ts
-      controller.ts
-      services.ts
-      repository.ts
-      models.ts
-      index.ts
-    user/               # CRUD de usuários
-      routes.ts
-      controller.ts
-      services.ts
-      repository.ts
-      models.ts
-      index.ts
+├── app.ts                  # Configuração do Express, middlewares, rotas e /health
+├── server.ts               # Bootstrap: conecta DB e inicia servidor
+├── settings.ts             # Agrega configurações derivadas de env
+├── config/
+│   └── env.ts              # Leitura e validação das variáveis de ambiente (Zod)
+├── infra/
+│   ├── database.ts         # Pool do PostgreSQL, healthcheck e utilitários de DB
+│   └── logger.ts           # Logger Pino e middleware de debug HTTP
+├── middlewares/
+│   ├── error.ts            # Tratamento centralizado de erros (AppError)
+│   └── notFound.ts         # 404 Not Found
+├── shared/
+│   ├── exceptions.ts       # Erros customizados e AppError
+│   ├── index.ts            # Re‑exports (validate, tipos, openapi)
+│   ├── openapi.ts          # Declaração do OpenAPI e rota /api-docs
+│   ├── types.ts            # Tipos utilitários de resposta
+│   └── validation.ts       # Middleware validate (Zod)
+├── routes.ts               # Router raiz, mapeia /users, /materials, /points
+└── modules/
+    ├── material/           # CRUD de materiais
+    │   ├── controller.ts
+    │   ├── index.ts
+    │   ├── models.ts
+    │   ├── repository.ts
+    │   ├── routes.ts
+    │   └── services.ts
+    ├── point/              # CRUD de pontos de coleta e filtros por material
+    │   ├── controller.ts
+    │   ├── index.ts
+    │   ├── models.ts
+    │   ├── repository.ts
+    │   ├── routes.ts
+    │   └── services.ts
+    └── user/               # CRUD de usuários
+        ├── controller.ts
+        ├── index.ts
+        ├── models.ts
+        ├── repository.ts
+        ├── routes.ts
+        └── services.ts
 
-database.sql            # Script para criar o DB e dados de exemplo
-env.example             # Exemplo de variáveis de ambiente
+database.sql                # Script para criar o DB e dados de exemplo
+env.example                 # Exemplo de variáveis de ambiente
 ```
 
 ### Principais Recursos

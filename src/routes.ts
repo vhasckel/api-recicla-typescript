@@ -8,7 +8,6 @@ import { userRouter } from './modules/user/routes';
 import { settings } from './settings';
 import { validate } from './shared';
 
-
 const routes = Router();
 
 routes.get(
@@ -19,8 +18,6 @@ routes.get(
       { name: settings.server.name, version: '1.0.0' },
       'API is running'
     );
-    next();
-
     res.json({
       name: settings.server.name,
       version: '1.0.0',

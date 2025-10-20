@@ -2,12 +2,12 @@
   "name": "api_recicla",
   "version": "1.0.0",
   "description": "",
-  "main": "scr/server.js",
+  "main": "server.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "tsx watch src/server.ts",
     "build": "tsc -p tsconfig.json",
-    "start": "node scr/server.js",
+    "start": "node server.ts",
     "typecheck": "tsc --noEmit",
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix"

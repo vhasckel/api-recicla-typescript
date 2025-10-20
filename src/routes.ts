@@ -1,4 +1,4 @@
-import { Router, Request, Response, NextFunction } from 'express';
+import { Router, Request, Response } from 'express';
 import { z } from 'zod';
 
 import { logger } from './infra/logger';
@@ -13,7 +13,7 @@ const routes = Router();
 routes.get(
   '/',
   validate(z.object({}), 'query'),
-  (_req: Request, res: Response, next: NextFunction) => {
+  (_req: Request, res: Response) => {
     logger.info(
       { name: settings.server.name, version: '1.0.0' },
       'API is running'

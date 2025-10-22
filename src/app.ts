@@ -33,7 +33,12 @@ app.use(
     },
   })
 );
-app.use(cors({ origin: settings.cors.origin }));
+app.use(settings.cors.origin ? cors({ origin: settings.cors.origin }) : cors());
+app.options(
+  /.*/,
+  settings.cors.origin ? cors({ origin: settings.cors.origin }) : cors()
+);
+
 app.use(express.json());
 
 if (settings.server.env === 'development') {
